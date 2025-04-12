@@ -310,8 +310,9 @@ async def save_config_post(request: Request):
         default_conf = LocalConf(DEFAULT_CONFIG)
         for k, v in data.items():
             v2 = default_conf.get(k)
+            v3 = conf.get(k)
             # only save to file any value that differs from default config
-            if not v2 or v != v2:
+            if not v2 or v != v2 or v != v3:
                 conf[k] = v
         conf.store()
         return {"success": True}
