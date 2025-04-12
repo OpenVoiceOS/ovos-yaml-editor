@@ -164,6 +164,7 @@ async def get_editor(credentials: HTTPBasicCredentials = Depends(authenticate)):
         <div class="button-container">
             <button onclick="reloadConfig()"><i class="fas fa-sync-alt"></i> Reload</button>
             <button onclick="saveConfig()" id="saveButton"><i class="fas fa-save"></i> Save</button>
+            <button onclick="resetConfig()"><i class="fas fa-undo"></i> Reset Config</button>
             <button onclick="reportIssue()"><i class="fas fa-exclamation-circle"></i> Report Issue</button>
         </div>
     </div>
@@ -246,6 +247,22 @@ async def get_editor(credentials: HTTPBasicCredentials = Depends(authenticate)):
             }
         }
 
+        async function resetConfig() {
+            if (!confirm("Are you sure you want to reset the config to default? This cannot be undone.")) return;
+        
+            const response = await fetch("/config/reset", {
+                method: "POST"
+            });
+        
+            const result = await response.json();
+            if (result.success) {
+                alert("Config has been reset to default.");
+                reloadConfig();  // Refresh the editor with new config
+            } else {
+                alert("Error resetting config: " + result.error);
+            }
+        }
+
         // Report issue function
         function reportIssue() {
             window.open("https://github.com/OpenVoiceOS/OpenVoiceOS/issues", "_blank");
@@ -292,6 +309,18 @@ async def save_config_post(request: Request):
         conf = LocalConf(USER_CONFIG)
         conf.update(data)
         conf.store()
+        return {"success": True}
+    except Exception as e:
+        return {"success": False, "error": f"Failed to save config: {e}"}
+
+
+@app.post("/config/reset")
+async def reset_config_post(request: Request):
+    try:
+        conf = LocalConf(USER_CONFIG)
+        conf.clear()
+        conf.store()
+        Configuration.reload()
         return {"success": True}
     except Exception as e:
         return {"success": False, "error": f"Failed to save config: {e}"}
