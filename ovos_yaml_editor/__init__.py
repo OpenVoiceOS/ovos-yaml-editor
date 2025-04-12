@@ -8,7 +8,7 @@ from fastapi.responses import HTMLResponse, RedirectResponse
 from fastapi.security import HTTPBasic, HTTPBasicCredentials
 from ovos_config import Configuration
 from ovos_config import LocalConf
-from ovos_config.locations import USER_CONFIG
+from ovos_config.locations import USER_CONFIG, DEFAULT_CONFIG
 
 app = FastAPI()
 
@@ -307,7 +307,12 @@ async def save_config_post(request: Request):
             return {"success": False, "error": str(e)}
 
         conf = LocalConf(USER_CONFIG)
-        conf.update(data)
+        default_conf = LocalConf(DEFAULT_CONFIG)
+        for k, v in data.items():
+            v2 = default_conf.get(k)
+            # only save to file any value that differs from default config
+            if not v2 or v != v2:
+                conf[k] = v
         conf.store()
         return {"success": True}
     except Exception as e:
@@ -328,7 +333,7 @@ async def reset_config_post(request: Request):
 
 @click.command()
 @click.option('--host', default='127.0.0.1', help='Set to 0.0.0.0 to make externally accessible.')
-@click.option('--port', default=9200, type=int, help='Port to run the app on.')
+@click.option('--port', default=9210, type=int, help='Port to run the app on.')
 def main(host, port):
     """Run the OpenVoiceOS config editor Web UI."""
     import uvicorn
