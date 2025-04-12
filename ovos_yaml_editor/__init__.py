@@ -39,6 +39,7 @@ async def get_editor(credentials: HTTPBasicCredentials = Depends(authenticate)):
     <title>OpenVoiceOS Editor</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/codemirror.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/theme/darcula.min.css">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -181,6 +182,7 @@ async def get_editor(credentials: HTTPBasicCredentials = Depends(authenticate)):
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/codemirror.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/mode/yaml/yaml.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/mode/javascript/javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/mode/javascript/json.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
     <script>
 
@@ -189,8 +191,8 @@ async def get_editor(credentials: HTTPBasicCredentials = Depends(authenticate)):
         function initEditor(mode) {
             editor = CodeMirror(document.getElementById('editor'), {
                 lineNumbers: true,
-                gutters: ["CodeMirror-linenumbers", "CodeMirror-lint-markers", "CodeMirror-lintGutter"],
-                mode: mode,
+                gutters: ["CodeMirror-linenumbers", "CodeMirror-lint-markers"],
+                mode: mode === 'yaml' ? "yaml" : { name: "javascript", json: true },
                 theme: "darcula",
                 tabSize: 2,
                 lint: true,
@@ -213,7 +215,7 @@ async def get_editor(credentials: HTTPBasicCredentials = Depends(authenticate)):
         function switchTab(tab) {
             document.querySelectorAll("#tabs button").forEach(button => button.classList.remove("active"));
             document.querySelector(`#tabs button:nth-child(${tab === 'yaml' ? 1 : 2})`).classList.add("active");
-            editor.setOption("mode", tab === 'yaml' ? "yaml" : "json");
+            editor.setOption("mode", tab === 'yaml' ? "yaml" : "application/json");
             reloadConfig(tab);
         }
 

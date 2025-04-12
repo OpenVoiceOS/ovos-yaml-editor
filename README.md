@@ -9,6 +9,9 @@ It allows editing the configuration in two formats:
 ![image](https://github.com/user-attachments/assets/2b8bff50-798f-4245-9fec-40275fcc5eac)
 
 
+![](yaml.png)
+![](json.png)
+
 ## Features
 
 - **Authentication**: Password-protected editor with basic HTTP authentication.
