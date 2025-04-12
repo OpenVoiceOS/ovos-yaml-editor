@@ -6,9 +6,6 @@ It allows editing the configuration in two formats:
 - **YAML**: This is the default format when the editor is opened.
 - **JSON**: Users can switch to this format using the tabs in the editor.
   
-![image](https://github.com/user-attachments/assets/2b8bff50-798f-4245-9fec-40275fcc5eac)
-
-
 ![](yaml.png)
 ![](json.png)
 
