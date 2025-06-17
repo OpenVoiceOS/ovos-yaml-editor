@@ -17,6 +17,8 @@ PASSWORD = os.getenv("EDITOR_PASSWORD", "password")  # Default to "password" if 
 
 security = HTTPBasic()
 
+memory_config = Configuration()
+
 
 def authenticate(credentials: HTTPBasicCredentials = Depends(security)):
     """Authenticate the user."""
@@ -280,18 +282,21 @@ async def get_editor(credentials: HTTPBasicCredentials = Depends(authenticate)):
 
 # Endpoint to get the config as YAML or JSON based on the tab selected
 @app.get("/config/{format}")
-async def get_config(format: str):
-    config = Configuration()
+async def get_config(format: str, credentials: HTTPBasicCredentials = Depends(authenticate)):
+    if not credentials:
+        return RedirectResponse(url="/login")
     if format == "json":
-        return Response(json.dumps(config, indent=2, ensure_ascii=False), media_type="text/plain")
+        return Response(json.dumps(memory_config, indent=2, ensure_ascii=False), media_type="text/plain")
     elif format == "yaml":
-        return Response(yaml.dump(dict(config), default_flow_style=False, sort_keys=False), media_type="text/plain")
+        return Response(yaml.dump(dict(memory_config), default_flow_style=False, sort_keys=False), media_type="text/plain")
     else:
         return {"success": False, "error": "Unsupported format"}
 
 
 @app.post("/config")
-async def save_config_post(request: Request):
+async def save_config_post(request: Request, credentials: HTTPBasicCredentials = Depends(authenticate)):
+    if not credentials:
+        return RedirectResponse(url="/login")
     body = await request.json()
     try:
         data = body.get("data", "")
@@ -309,9 +314,9 @@ async def save_config_post(request: Request):
         default_conf = MycroftDefaultConfig()
         for k, v in data.items():
             v2 = default_conf.get(k)
-            # only save to file any value that differs from default config
+            # only save to file/memory any value that differs from default config
             if v2 is None or v != v2:
-                conf[k] = v
+                conf[k] = memory_config[k] = v
         conf.store()
         return {"success": True}
     except Exception as e:
@@ -319,12 +324,14 @@ async def save_config_post(request: Request):
 
 
 @app.post("/config/reset")
-async def reset_config_post(request: Request):
+async def reset_config_post(request: Request, credentials: HTTPBasicCredentials = Depends(authenticate)):
+    if not credentials:
+        return RedirectResponse(url="/login")
     try:
         conf = LocalConf(USER_CONFIG)
         conf.clear()
         conf.store()
-        Configuration.reload()
+        memory_config.reset()
         return {"success": True}
     except Exception as e:
         return {"success": False, "error": f"Failed to save config: {e}"}
