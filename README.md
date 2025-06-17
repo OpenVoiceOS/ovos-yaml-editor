@@ -19,10 +19,9 @@ It allows editing the configuration in two formats:
 
 ## Installation
 
-1. Clone the repository:
+1. Install from pypi:
    ```bash
-   git clone https://github.com/HiveMindInsiders/ovos-yaml-editor
-   pip install ./ovos-yaml-editor
+   pip install ovos-yaml-editor
    ```
 2. Set up environment variables for authentication:
    ```bash
