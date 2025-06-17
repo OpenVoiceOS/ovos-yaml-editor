@@ -2,9 +2,6 @@
 
 The **OpenVoiceOS Config Editor** is a web-based application for managing and editing the configuration files of OpenVoiceOS, supporting YAML and JSON formats. It provides an easy-to-use interface for modifying and saving configuration data, making it simple for users to adjust system settings.
 
-
-> ⚠️ **Private Repository:** This project is not yet publicly available. Please do not share this repository outside the early access group.
-
 It allows editing the configuration in two formats:
 - **YAML**: This is the default format when the editor is opened.
 - **JSON**: Users can switch to this format using the tabs in the editor.
@@ -19,14 +16,6 @@ It allows editing the configuration in two formats:
 - **Save and Reload**: Users can save changes to the configuration files and reload the current configuration into the editor.
 - **Issue Reporting**: Direct link to report issues on GitHub.
 - **Responsive UI**: Modern, clean user interface with tabs to switch between YAML and JSON formats.
-
-## Requirements
-
-- **Python 3.7+**
-- **FastAPI**
-- **Uvicorn**
-- **Codemirror** (for syntax highlighting)
-- **OpenVoiceOS Configuration** (`ovos_config` library)
 
 ## Installation
 
