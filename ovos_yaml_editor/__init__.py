@@ -6,9 +6,8 @@ import yaml
 from fastapi import FastAPI, Request, Response, Depends
 from fastapi.responses import HTMLResponse, RedirectResponse
 from fastapi.security import HTTPBasic, HTTPBasicCredentials
-from ovos_config import Configuration
-from ovos_config import LocalConf
-from ovos_config.locations import USER_CONFIG, DEFAULT_CONFIG
+from ovos_config.config import Configuration, LocalConf, MycroftDefaultConfig
+from ovos_config.locations import USER_CONFIG
 
 app = FastAPI()
 
@@ -307,12 +306,11 @@ async def save_config_post(request: Request):
             return {"success": False, "error": str(e)}
 
         conf = LocalConf(USER_CONFIG)
-        default_conf = LocalConf(DEFAULT_CONFIG)
+        default_conf = MycroftDefaultConfig()
         for k, v in data.items():
             v2 = default_conf.get(k)
-            v3 = conf.get(k)
             # only save to file any value that differs from default config
-            if not v2 or v != v2 or v != v3:
+            if v2 is None or v != v2:
                 conf[k] = v
         conf.store()
         return {"success": True}
