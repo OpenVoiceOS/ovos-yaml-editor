@@ -177,7 +177,7 @@ async def get_editor(credentials: HTTPBasicCredentials = Depends(authenticate)):
     <div id="editor"></div>
     
     <footer>
-        <p>© 2025 OpenVoiceOS. <a href="https://github.com/OpenVoiceOS/OpenVoiceOS">GitHub</a> | <a href="https://github.com/OpenVoiceOS/OpenVoiceOS/blob/main/LICENSE">Apache 2.0 License</a></p>
+        <p>© 2025 OpenVoiceOS. <a href="https://github.com/OpenVoiceOS/ovos-yaml-editor">GitHub</a> | <a href="https://github.com/OpenVoiceOS/ovos-yaml-editor/blob/main/LICENSE">Apache 2.0 License</a></p>
     </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/codemirror.min.js"></script>
@@ -265,7 +265,7 @@ async def get_editor(credentials: HTTPBasicCredentials = Depends(authenticate)):
 
         // Report issue function
         function reportIssue() {
-            window.open("https://github.com/OpenVoiceOS/OpenVoiceOS/issues", "_blank");
+            window.open("https://github.com/OpenVoiceOS/ovos-yaml-editor/issues", "_blank");
         }
 
         // Initialize the editor with YAML mode
