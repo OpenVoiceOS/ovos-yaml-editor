@@ -6,7 +6,7 @@ BASEDIR = os.path.abspath(os.path.dirname(__file__))
 
 
 def get_version():
-    version_file = os.path.join(BASEDIR, 'ovos_config', 'version.py')
+    version_file = os.path.join(BASEDIR, 'ovos_yaml_editor', 'version.py')
     major, minor, build, alpha = (None, None, None, None)
     with open(version_file) as f:
         for line in f:
