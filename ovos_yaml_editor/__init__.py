@@ -317,6 +317,9 @@ async def save_config_post(request: Request, credentials: HTTPBasicCredentials =
             # only save to file/memory any value that differs from default config
             if v2 is None or v != v2:
                 conf[k] = memory_config[k] = v
+            # if value changed back to default, remove it from user conf
+            elif v == v2 and k in conf:
+                conf.pop(k)
         conf.store()
         return {"success": True}
     except Exception as e:
