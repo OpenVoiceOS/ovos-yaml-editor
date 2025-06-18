@@ -178,7 +178,7 @@ async def get_editor(credentials: HTTPBasicCredentials = Depends(authenticate)):
     <div id="editor"></div>
     
     <footer>
-        <p>© 2025 OpenVoiceOS. <a href="https://github.com/OpenVoiceOS/ovos-yaml-editor">GitHub</a> | <a href="https://github.com/OpenVoiceOS/ovos-yaml-editor/blob/main/LICENSE">Apache 2.0 License</a></p>
+        <p>© 2025 OpenVoiceOS. <a href="https://github.com/OpenVoiceOS/ovos-yaml-editor">GitHub</a> | <a href="https://github.com/OpenVoiceOS/ovos-yaml-editor/blob/dev/LICENSE">Apache 2.0 License</a></p>
     </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/codemirror.min.js"></script>
@@ -317,6 +317,9 @@ async def save_config_post(request: Request, credentials: HTTPBasicCredentials =
             # only save to file/memory any value that differs from default config
             if v2 is None or v != v2:
                 conf[k] = memory_config[k] = v
+            # if value changed back to default, remove it from user conf
+            elif v == v2 and k in conf:
+                conf.pop(k)
         conf.store()
         return {"success": True}
     except Exception as e:

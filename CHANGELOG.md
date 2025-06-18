@@ -1,12 +1,12 @@
 # Changelog
 
-## [0.0.2a1](https://github.com/OpenVoiceOS/ovos-yaml-editor/tree/0.0.2a1) (2025-06-17)
+## [0.0.3a1](https://github.com/OpenVoiceOS/ovos-yaml-editor/tree/0.0.3a1) (2025-06-18)
 
-[Full Changelog](https://github.com/OpenVoiceOS/ovos-yaml-editor/compare/0.0.1...0.0.2a1)
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-yaml-editor/compare/0.0.2...0.0.3a1)
 
 **Merged pull requests:**
 
-- fix: in memory config cache out of sync + credentials in all endpoints [\#1](https://github.com/OpenVoiceOS/ovos-yaml-editor/pull/1) ([JarbasAl](https://github.com/JarbasAl))
+- fix: edit\_back\_to\_default [\#3](https://github.com/OpenVoiceOS/ovos-yaml-editor/pull/3) ([JarbasAl](https://github.com/JarbasAl))
 
 
 
