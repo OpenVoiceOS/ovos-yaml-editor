@@ -342,7 +342,7 @@ async def reset_config_post(request: Request, credentials: HTTPBasicCredentials 
         return {"success": False, "error": f"Failed to save config: {e}"}
 
 
-@app.post("/status")
+@app.get("/status")
 async def status(request: Request):
     return {"version": VERSION_STR}
 
