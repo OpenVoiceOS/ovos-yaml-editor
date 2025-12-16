@@ -9,6 +9,8 @@ from fastapi.security import HTTPBasic, HTTPBasicCredentials
 from ovos_config.config import Configuration, LocalConf, MycroftDefaultConfig
 from ovos_config.locations import USER_CONFIG
 
+from ovos_yaml_editor.version import VERSION_STR
+
 app = FastAPI()
 
 # Fetch username and password from environment variables
@@ -338,6 +340,11 @@ async def reset_config_post(request: Request, credentials: HTTPBasicCredentials 
         return {"success": True}
     except Exception as e:
         return {"success": False, "error": f"Failed to save config: {e}"}
+
+
+@app.post("/status")
+async def status(request: Request):
+    return {"version": VERSION_STR}
 
 
 @click.command()
