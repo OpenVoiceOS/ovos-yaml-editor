@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.1.0a1](https://github.com/OpenVoiceOS/ovos-yaml-editor/tree/0.1.0a1) (2025-12-16)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-yaml-editor/compare/0.0.3a1...0.1.0a1)
+
+**Merged pull requests:**
+
+- feat: add /status endpoint [\#5](https://github.com/OpenVoiceOS/ovos-yaml-editor/pull/5) ([JarbasAl](https://github.com/JarbasAl))
+
 ## [0.0.3a1](https://github.com/OpenVoiceOS/ovos-yaml-editor/tree/0.0.3a1) (2025-06-18)
 
 [Full Changelog](https://github.com/OpenVoiceOS/ovos-yaml-editor/compare/0.0.2...0.0.3a1)
