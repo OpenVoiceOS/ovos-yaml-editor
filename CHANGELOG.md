@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.1.0a2](https://github.com/OpenVoiceOS/ovos-yaml-editor/tree/0.1.0a2) (2025-12-18)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-yaml-editor/compare/0.1.0a1...0.1.0a2)
+
+**Merged pull requests:**
+
+- chore: Configure Renovate [\#7](https://github.com/OpenVoiceOS/ovos-yaml-editor/pull/7) ([renovate[bot]](https://github.com/apps/renovate))
+
 ## [0.1.0a1](https://github.com/OpenVoiceOS/ovos-yaml-editor/tree/0.1.0a1) (2025-12-16)
 
 [Full Changelog](https://github.com/OpenVoiceOS/ovos-yaml-editor/compare/0.0.3a1...0.1.0a1)
