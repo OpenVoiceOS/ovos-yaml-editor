@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.1.0a4](https://github.com/OpenVoiceOS/ovos-yaml-editor/tree/0.1.0a4) (2025-12-19)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-yaml-editor/compare/0.1.0a3...0.1.0a4)
+
+**Merged pull requests:**
+
+- chore\(deps\): update dependency python to 3.14 [\#8](https://github.com/OpenVoiceOS/ovos-yaml-editor/pull/8) ([renovate[bot]](https://github.com/apps/renovate))
+
 ## [0.1.0a3](https://github.com/OpenVoiceOS/ovos-yaml-editor/tree/0.1.0a3) (2025-12-19)
 
 [Full Changelog](https://github.com/OpenVoiceOS/ovos-yaml-editor/compare/0.1.0a2...0.1.0a3)
