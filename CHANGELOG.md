@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.1.0a5](https://github.com/OpenVoiceOS/ovos-yaml-editor/tree/0.1.0a5) (2026-06-14)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-yaml-editor/compare/0.1.0a4...0.1.0a5)
+
+**Merged pull requests:**
+
+- docs: add NGI0 Commons Fund attribution [\#14](https://github.com/OpenVoiceOS/ovos-yaml-editor/pull/14) ([JarbasAl](https://github.com/JarbasAl))
+
 ## [0.1.0a4](https://github.com/OpenVoiceOS/ovos-yaml-editor/tree/0.1.0a4) (2025-12-19)
 
 [Full Changelog](https://github.com/OpenVoiceOS/ovos-yaml-editor/compare/0.1.0a3...0.1.0a4)
