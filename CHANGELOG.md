@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.1.0a6](https://github.com/OpenVoiceOS/ovos-yaml-editor/tree/0.1.0a6) (2026-08-01)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-yaml-editor/compare/0.1.0a5...0.1.0a6)
+
+**Merged pull requests:**
+
+- docs: rewrite README in Simplified Technical English [\#18](https://github.com/OpenVoiceOS/ovos-yaml-editor/pull/18) ([JarbasAl](https://github.com/JarbasAl))
+
 ## [0.1.0a5](https://github.com/OpenVoiceOS/ovos-yaml-editor/tree/0.1.0a5) (2026-06-14)
 
 [Full Changelog](https://github.com/OpenVoiceOS/ovos-yaml-editor/compare/0.1.0a4...0.1.0a5)
