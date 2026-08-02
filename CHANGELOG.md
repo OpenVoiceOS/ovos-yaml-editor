@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.1.0a7](https://github.com/OpenVoiceOS/ovos-yaml-editor/tree/0.1.0a7) (2026-08-02)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-yaml-editor/compare/0.1.0a6...0.1.0a7)
+
+**Merged pull requests:**
+
+- ci: migrate release workflow to shared OpenVoiceOS automations [\#19](https://github.com/OpenVoiceOS/ovos-yaml-editor/pull/19) ([JarbasAl](https://github.com/JarbasAl))
+
 ## [0.1.0a6](https://github.com/OpenVoiceOS/ovos-yaml-editor/tree/0.1.0a6) (2026-08-01)
 
 [Full Changelog](https://github.com/OpenVoiceOS/ovos-yaml-editor/compare/0.1.0a5...0.1.0a6)
