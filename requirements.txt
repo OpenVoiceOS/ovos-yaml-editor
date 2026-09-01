@@ -1,4 +1,4 @@
 fastapi
 pyyaml
 uvicorn
-ovos-config
+ovos-config>=2.4.0a1,<3.0.0

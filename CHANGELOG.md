@@ -1,12 +1,76 @@
 # Changelog
 
-## [0.0.2a1](https://github.com/OpenVoiceOS/ovos-yaml-editor/tree/0.0.2a1) (2025-06-17)
+## [0.1.0a8](https://github.com/OpenVoiceOS/ovos-yaml-editor/tree/0.1.0a8) (2026-09-01)
 
-[Full Changelog](https://github.com/OpenVoiceOS/ovos-yaml-editor/compare/0.0.1...0.0.2a1)
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-yaml-editor/compare/0.1.0a7...0.1.0a8)
 
 **Merged pull requests:**
 
-- fix: in memory config cache out of sync + credentials in all endpoints [\#1](https://github.com/OpenVoiceOS/ovos-yaml-editor/pull/1) ([JarbasAl](https://github.com/JarbasAl))
+- refactor: use the current ovos-config class names [\#17](https://github.com/OpenVoiceOS/ovos-yaml-editor/pull/17) ([JarbasAl](https://github.com/JarbasAl))
+
+## [0.1.0a7](https://github.com/OpenVoiceOS/ovos-yaml-editor/tree/0.1.0a7) (2026-08-02)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-yaml-editor/compare/0.1.0a6...0.1.0a7)
+
+**Merged pull requests:**
+
+- ci: migrate release workflow to shared OpenVoiceOS automations [\#19](https://github.com/OpenVoiceOS/ovos-yaml-editor/pull/19) ([JarbasAl](https://github.com/JarbasAl))
+
+## [0.1.0a6](https://github.com/OpenVoiceOS/ovos-yaml-editor/tree/0.1.0a6) (2026-08-01)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-yaml-editor/compare/0.1.0a5...0.1.0a6)
+
+**Merged pull requests:**
+
+- docs: rewrite README in Simplified Technical English [\#18](https://github.com/OpenVoiceOS/ovos-yaml-editor/pull/18) ([JarbasAl](https://github.com/JarbasAl))
+
+## [0.1.0a5](https://github.com/OpenVoiceOS/ovos-yaml-editor/tree/0.1.0a5) (2026-06-14)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-yaml-editor/compare/0.1.0a4...0.1.0a5)
+
+**Merged pull requests:**
+
+- docs: add NGI0 Commons Fund attribution [\#14](https://github.com/OpenVoiceOS/ovos-yaml-editor/pull/14) ([JarbasAl](https://github.com/JarbasAl))
+
+## [0.1.0a4](https://github.com/OpenVoiceOS/ovos-yaml-editor/tree/0.1.0a4) (2025-12-19)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-yaml-editor/compare/0.1.0a3...0.1.0a4)
+
+**Merged pull requests:**
+
+- chore\(deps\): update dependency python to 3.14 [\#8](https://github.com/OpenVoiceOS/ovos-yaml-editor/pull/8) ([renovate[bot]](https://github.com/apps/renovate))
+
+## [0.1.0a3](https://github.com/OpenVoiceOS/ovos-yaml-editor/tree/0.1.0a3) (2025-12-19)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-yaml-editor/compare/0.1.0a2...0.1.0a3)
+
+**Merged pull requests:**
+
+- chore\(deps\): update actions/setup-python action to v6 [\#12](https://github.com/OpenVoiceOS/ovos-yaml-editor/pull/12) ([renovate[bot]](https://github.com/apps/renovate))
+
+## [0.1.0a2](https://github.com/OpenVoiceOS/ovos-yaml-editor/tree/0.1.0a2) (2025-12-18)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-yaml-editor/compare/0.1.0a1...0.1.0a2)
+
+**Merged pull requests:**
+
+- chore: Configure Renovate [\#7](https://github.com/OpenVoiceOS/ovos-yaml-editor/pull/7) ([renovate[bot]](https://github.com/apps/renovate))
+
+## [0.1.0a1](https://github.com/OpenVoiceOS/ovos-yaml-editor/tree/0.1.0a1) (2025-12-16)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-yaml-editor/compare/0.0.3a1...0.1.0a1)
+
+**Merged pull requests:**
+
+- feat: add /status endpoint [\#5](https://github.com/OpenVoiceOS/ovos-yaml-editor/pull/5) ([JarbasAl](https://github.com/JarbasAl))
+
+## [0.0.3a1](https://github.com/OpenVoiceOS/ovos-yaml-editor/tree/0.0.3a1) (2025-06-18)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-yaml-editor/compare/0.0.2...0.0.3a1)
+
+**Merged pull requests:**
+
+- fix: edit\_back\_to\_default [\#3](https://github.com/OpenVoiceOS/ovos-yaml-editor/pull/3) ([JarbasAl](https://github.com/JarbasAl))
 
 
 
