@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.1.0a8](https://github.com/OpenVoiceOS/ovos-yaml-editor/tree/0.1.0a8) (2026-09-01)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-yaml-editor/compare/0.1.0a7...0.1.0a8)
+
+**Merged pull requests:**
+
+- refactor: use the current ovos-config class names [\#17](https://github.com/OpenVoiceOS/ovos-yaml-editor/pull/17) ([JarbasAl](https://github.com/JarbasAl))
+
 ## [0.1.0a7](https://github.com/OpenVoiceOS/ovos-yaml-editor/tree/0.1.0a7) (2026-08-02)
 
 [Full Changelog](https://github.com/OpenVoiceOS/ovos-yaml-editor/compare/0.1.0a6...0.1.0a7)
