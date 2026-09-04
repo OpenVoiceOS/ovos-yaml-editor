@@ -122,6 +122,11 @@ async def get_editor(credentials: HTTPBasicCredentials = Depends(authenticate)):
             color: #4CAF50;
             text-decoration: none;
         }
+        footer p.fine {
+            font-size: 12px;
+            color: #ccc;
+            margin: 4px 0;
+        }
         
         button:disabled {
             background-color: #d3d3d3;  /* Light grey */
@@ -181,6 +186,13 @@ async def get_editor(credentials: HTTPBasicCredentials = Depends(authenticate)):
     
     <footer>
         <p>© 2025 OpenVoiceOS. <a href="https://github.com/OpenVoiceOS/ovos-yaml-editor">GitHub</a> | <a href="https://github.com/OpenVoiceOS/ovos-yaml-editor/blob/dev/LICENSE">Apache 2.0 License</a></p>
+        <p class="fine">Developed by <a href="https://tigregotico.pt">TigreGotico</a> for
+            <a href="https://openvoiceos.org">OpenVoiceOS</a>.</p>
+        <p class="fine">Made with the help of AI.</p>
+        <p class="fine">Funded by the <a href="https://nlnet.nl/project/OpenVoiceOS">NGI0 Commons Fund</a> /
+            <a href="https://nlnet.nl">NLnet</a> under grant agreement No
+            <a href="https://cordis.europa.eu/project/id/101135429">101135429</a>, through the European
+            Commission's <a href="https://ngi.eu">Next Generation Internet</a> programme.</p>
     </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/codemirror.min.js"></script>
