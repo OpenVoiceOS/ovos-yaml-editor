@@ -6,8 +6,10 @@ import yaml
 from fastapi import FastAPI, Request, Response, Depends
 from fastapi.responses import HTMLResponse, RedirectResponse
 from fastapi.security import HTTPBasic, HTTPBasicCredentials
-from ovos_config.config import Configuration, LocalConf, MycroftDefaultConfig
+from ovos_config.config import Configuration, LocalConf, DefaultConfig
 from ovos_config.locations import USER_CONFIG
+
+from ovos_yaml_editor.version import VERSION_STR
 
 app = FastAPI()
 
@@ -120,6 +122,11 @@ async def get_editor(credentials: HTTPBasicCredentials = Depends(authenticate)):
             color: #4CAF50;
             text-decoration: none;
         }
+        footer p.fine {
+            font-size: 12px;
+            color: #ccc;
+            margin: 4px 0;
+        }
         
         button:disabled {
             background-color: #d3d3d3;  /* Light grey */
@@ -178,7 +185,14 @@ async def get_editor(credentials: HTTPBasicCredentials = Depends(authenticate)):
     <div id="editor"></div>
     
     <footer>
-        <p>© 2025 OpenVoiceOS. <a href="https://github.com/OpenVoiceOS/ovos-yaml-editor">GitHub</a> | <a href="https://github.com/OpenVoiceOS/ovos-yaml-editor/blob/main/LICENSE">Apache 2.0 License</a></p>
+        <p>© 2025 OpenVoiceOS. <a href="https://github.com/OpenVoiceOS/ovos-yaml-editor">GitHub</a> | <a href="https://github.com/OpenVoiceOS/ovos-yaml-editor/blob/dev/LICENSE">Apache 2.0 License</a></p>
+        <p class="fine">Developed by <a href="https://tigregotico.pt">TigreGotico</a> for
+            <a href="https://openvoiceos.org">OpenVoiceOS</a>.</p>
+        <p class="fine">Made with the help of AI.</p>
+        <p class="fine">Funded by the <a href="https://nlnet.nl/project/OpenVoiceOS">NGI0 Commons Fund</a> /
+            <a href="https://nlnet.nl">NLnet</a> under grant agreement No
+            <a href="https://cordis.europa.eu/project/id/101135429">101135429</a>, through the European
+            Commission's <a href="https://ngi.eu">Next Generation Internet</a> programme.</p>
     </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/codemirror.min.js"></script>
@@ -311,12 +325,15 @@ async def save_config_post(request: Request, credentials: HTTPBasicCredentials =
             return {"success": False, "error": str(e)}
 
         conf = LocalConf(USER_CONFIG)
-        default_conf = MycroftDefaultConfig()
+        default_conf = DefaultConfig()
         for k, v in data.items():
             v2 = default_conf.get(k)
             # only save to file/memory any value that differs from default config
             if v2 is None or v != v2:
                 conf[k] = memory_config[k] = v
+            # if value changed back to default, remove it from user conf
+            elif v == v2 and k in conf:
+                conf.pop(k)
         conf.store()
         return {"success": True}
     except Exception as e:
@@ -335,6 +352,11 @@ async def reset_config_post(request: Request, credentials: HTTPBasicCredentials 
         return {"success": True}
     except Exception as e:
         return {"success": False, "error": f"Failed to save config: {e}"}
+
+
+@app.get("/status")
+async def status(request: Request):
+    return {"version": VERSION_STR}
 
 
 @click.command()
