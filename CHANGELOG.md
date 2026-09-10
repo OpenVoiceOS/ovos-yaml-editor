@@ -1,5 +1,14 @@
 # Changelog
 
+## [0.1.1a1](https://github.com/OpenVoiceOS/ovos-yaml-editor/tree/0.1.1a1) (2026-09-10)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-yaml-editor/compare/0.1.0a8...0.1.1a1)
+
+**Merged pull requests:**
+
+- fix: widen the ovos-config ceiling so the published range is not empty [\#23](https://github.com/OpenVoiceOS/ovos-yaml-editor/pull/23) ([JarbasAl](https://github.com/JarbasAl))
+- feat: add project, funding and AI-assistance attribution to the footer [\#22](https://github.com/OpenVoiceOS/ovos-yaml-editor/pull/22) ([JarbasAl](https://github.com/JarbasAl))
+
 ## [0.1.0a8](https://github.com/OpenVoiceOS/ovos-yaml-editor/tree/0.1.0a8) (2026-09-01)
 
 [Full Changelog](https://github.com/OpenVoiceOS/ovos-yaml-editor/compare/0.1.0a7...0.1.0a8)
