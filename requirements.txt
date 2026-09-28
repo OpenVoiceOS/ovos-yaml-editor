@@ -1,4 +1,0 @@
-fastapi
-pyyaml
-uvicorn
-ovos-config>=3.0.0a1,<4.0.0

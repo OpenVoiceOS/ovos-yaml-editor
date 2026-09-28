@@ -1,0 +1,50 @@
+[build-system]
+requires = ["setuptools>=77.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ovos-yaml-editor"
+dynamic = ["version"]
+description = "Simple YAML editor for OpenVoiceOS with FastAPI backend"
+readme = "README.md"
+license = "Apache-2.0"
+requires-python = ">=3.9"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+# Taken from requirements.txt, which this file replaces. The ovos-config range
+# is carried over unchanged: dropping the upper bound here would let a 4.x
+# release in, and the editor reads ovos-config's own layout.
+dependencies = [
+    "fastapi",
+    "pyyaml",
+    "uvicorn",
+    "ovos-config>=3.0.0a1,<4.0.0",
+]
+
+[project.optional-dependencies]
+# The 'test' extra for a suite that is not in this repository yet. httpx is
+# what fastapi.testclient runs on, and it is capped below 1.0 because the test
+# client does not run on the 1.0 development line. Neither is a runtime
+# dependency.
+test = [
+    "pytest",
+    "httpx>=0.23,<1",
+]
+
+[project.urls]
+Homepage = "https://github.com/OpenVoiceOS/ovos-yaml-editor"
+Repository = "https://github.com/OpenVoiceOS/ovos-yaml-editor"
+
+[project.scripts]
+ovos-yaml-editor = "ovos_yaml_editor:main"
+
+[tool.setuptools.packages.find]
+include = ["ovos_yaml_editor*"]
+
+# The release automation rewrites the four integers inside the version block of
+# ovos_yaml_editor/version.py, so the version stays there and is read from it
+# rather than repeated.
+[tool.setuptools.dynamic]
+version = {attr = "ovos_yaml_editor.version.VERSION_STR"}
