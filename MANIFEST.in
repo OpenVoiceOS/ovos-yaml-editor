@@ -1,0 +1,6 @@
+# setup.py reads requirements.txt at build time, through required(). The default
+# sdist rules do not package it, so a source distribution built with
+# "python setup.py sdist" cannot be built from: it fails with
+# FileNotFoundError on requirements.txt. publish_stable.yml builds the published
+# sdist that way, so this line is what makes that artifact installable.
+include requirements.txt
