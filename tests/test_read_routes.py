@@ -93,18 +93,15 @@ def test_json_does_not_escape_non_ascii(client):
 
 @pytest.mark.parametrize("fmt", ["xml", "toml", "YAML", "Json", "yaml2"])
 def test_unsupported_format_reports_an_error(client, fmt):
-    """Current behaviour: HTTP 200 with a success:false body.
+    """An unsupported format is a bad request, reported as a 4xx.
 
     The format match is case sensitive, so "YAML" and "Json" are unsupported.
-
-    DEFECT, recorded not endorsed: an unsupported format is a bad request and
-    should be a 4xx. The editor only ever asks for yaml or json, so this is not
-    reachable from the page, only from a hand-made request. When that is fixed
-    this test must change to expect 400.
+    The editor only ever asks for yaml or json, so this is not reachable from
+    the page, only from a hand-made request.
     """
     r = client.get(f"/config/{fmt}", auth=GOOD_AUTH)
-    assert r.status_code == 200
-    assert r.json() == {"success": False, "error": "Unsupported format"}
+    assert r.status_code == 400
+    assert r.json() == {"detail": "Unsupported format"}
 
 
 def test_an_empty_format_does_not_reach_the_config_route(client):

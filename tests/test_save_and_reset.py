@@ -123,15 +123,13 @@ def test_unparseable_payload_does_not_write(client, user_config_path):
 
 @pytest.mark.parametrize("payload", ["just a string", "- a\n- b\n", "42", ""])
 def test_a_payload_that_is_not_a_mapping_is_reported(client, payload):
-    """Valid YAML that is not a mapping. The route has no .items() to call.
+    """Valid YAML that is not a mapping is refused with a message for a user.
 
-    Recorded as it behaves: the outer try turns it into success:false. The error
-    text is a raw Python AttributeError, which is not a message for a user, but
-    the request is refused and nothing is written, which is what matters most.
+    The request is refused and nothing is written, which is what matters most.
     """
     result = save(client, payload)
     assert result["success"] is False
-    assert "has no attribute 'items'" in result["error"]
+    assert result["error"] == "The config must be a mapping of keys to values"
 
 
 def test_a_payload_that_is_not_a_mapping_does_not_write(client, user_config_path):

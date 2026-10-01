@@ -3,7 +3,7 @@ import os
 
 import click
 import yaml
-from fastapi import FastAPI, Request, Response, Depends
+from fastapi import FastAPI, Request, Response, Depends, HTTPException
 from fastapi.responses import HTMLResponse, RedirectResponse
 from fastapi.security import HTTPBasic, HTTPBasicCredentials
 from ovos_config.config import Configuration, LocalConf, DefaultConfig
@@ -304,7 +304,7 @@ async def get_config(format: str, credentials: HTTPBasicCredentials = Depends(au
     elif format == "yaml":
         return Response(yaml.dump(dict(memory_config), default_flow_style=False, sort_keys=False), media_type="text/plain")
     else:
-        return {"success": False, "error": "Unsupported format"}
+        raise HTTPException(status_code=400, detail="Unsupported format")
 
 
 @app.post("/config")
@@ -323,6 +323,9 @@ async def save_config_post(request: Request, credentials: HTTPBasicCredentials =
                 data = json.loads(data)
         except Exception as e:
             return {"success": False, "error": str(e)}
+
+        if not isinstance(data, dict):
+            return {"success": False, "error": "The config must be a mapping of keys to values"}
 
         conf = LocalConf(USER_CONFIG)
         default_conf = DefaultConfig()
